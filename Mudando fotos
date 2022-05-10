@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Mudar Cor Do Fundo </title>
+    <style>
+        #main{
+            width: 100%;
+            height: 100vh;
+        }
+        #formulario{
+            border-style: double;
+            border-color: royalblue;
+            border-width: 3px;
+            border-radius: 5px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .butao{
+            border: none;
+            border-width: 2px;
+            border-radius: 3px;
+            border-style: solid;
+            border-color: darkblue;
+            background-color: wheat;
+            color: black;
+        }
+        p{
+            border-style: double;
+            border-width: 3px;
+            border-radius: 5px;
+            margin: 0 25%;
+        }
+    </style>
+</head>
+<body>
+    <main id="tudo">
+        <div id="formulario">
+            
+            <h2>Brincando com funções - 01</h2>
+            
+            <p> 
+            1 – Um programa com um form, um input e dois buttons. Veja a mágica acontecer:  
+            </p>
+            
+            <br><hr><br>
+
+            <form method="get" action="" >
+
+                <label for="cores"> Selecione uma cor: </label><br>
+                Cor selecionada: 
+                <input type="color" name="cores" id="coris"> <br>
+                <button type="button" class="butao" name="cores" onclick="alteraCor()"> Alterar a cor do quadro </button>
+                <button type="button" class="butao" name="cores" onclick="alteraCorAll()"> Alterar a cor do fundo </button>
+
+            </form>
+        </div>
+    </main>
+    <script>
+        function alteraCor(){
+            alert("Cor alterada com sucesso!");
+
+            cor = document.getElementById("coris").value;
+            console.log(cor);
+
+
+            tudo = document.getElementById("tudo");
+            tudo.style.backgroundColor = cor;
+        }
+
+        function alteraCorAll(){
+            alert("Cor alterada com sucesso!");
+
+            cor = document.getElementById("coris").value;
+            console.log(cor);
+
+
+            tudo = document.getElementById("tudo");
+            document.body.style.backgroundColor = cor;
+        }
+    </script>
+</body>
+</html>
