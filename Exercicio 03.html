@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Exercício 03 - Atv 06</title>
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+        #tudo{
+            width: 100%;
+            height: 100vh;
+            display: block;
+        }
+        #caixa{
+            overflow: auto;
+            background-image: url("https://4.bp.blogspot.com/-fJpX9AjV5Fo/WBBJLnJ8CBI/AAAAAAAAAQM/9QA1yIDkFIIW2YlOp3ij7UNmASexcEjBQCLcB/s1600/2.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            border-style: solid;
+            border-width: 5px;
+            border-color: black;
+            padding-top: 10%;
+        }
+        #fts{
+            width: 50%;
+            height: auto;
+            border-style: solid;
+            border-width: 5px;
+            border-color: black;
+            text-align: center;
+            background-color: gray;
+            padding: 1% 1%;
+        }
+        input, button{
+            border-style: none;
+            border-radius: 10px;
+            text-align: center;
+            color: red;
+            width: 100px;
+        }
+        img{
+            width: 30%;
+            height: auto;
+        }
+        ul{
+            list-style: none;
+            text-align: center;
+            line-height: 2em;
+            text-shadow: 1px 1px white;
+            color:black;
+            font-size: 20px;
+        }
+        h1{
+            text-shadow: 1px 1px white;
+            color:brown;
+        }
+        #tutorial{
+            color: black;
+            text-shadow: -1px 1px white;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+<body>
+    <main id="tudo">
+        <div id="caixa">
+
+            <h1> Genius - Memory Game </h1>
+
+            <div id="fts">
+                <img onclick="amarelo()" id="amelo" src="Imagens_Genius/amarelo.png">
+                <img onclick="azul()"    id="ablu"  src="Imagens_Genius/azul.png"><br>
+                <img onclick="verde()"   id="velde" src="Imagens_Genius/verde.png">
+                <img onclick="vermelho()"   id="velho" src="Imagens_Genius/vermelho.png">
+            </div>
+            <ul>
+                <li>
+                    <button onclick="iniciar()"> Começar jogo. </button>
+                </li>
+                <li>
+                    <button onclick="parar()" id="pari"> Reiniciar. </button> 
+                </li>
+                <li>
+                    Pontuação: <br> 
+                    <input type="number" id="ponto" value="0" readonly>
+                </li>
+                <li>
+                    Record: <br>
+                    <input type="number" id="pontomax" value="0" readonly>
+                </li>
+                <li id="tutorial">
+                    Como jogar: 
+                        Clique em "Começar jogo", espere a sequência (será mostrada de um em um, a cada 
+                        rodada) e siga a ordem. Após terminar sua ordem, clique em "Começar Jogo". Repita até
+                        perder. Caso queira reiniciar o jogo, clique em "reiniciar".
+                </li>
+            </ul>
+        </div>
+    </main>
+    <script>
+        
+        //declaração de variaveis importantes para o programa
+        ordem = [];
+        ordemPc = [];
+        maxRecord = 0;
+        record = 0;
+        x = 0;
+        ifis = 0;
+
+/* =========== Função para quando o USUÁRIO clicar mude a foto e adiciona um valor =========== */
+        function amarelo(){
+            amelo = document.getElementById("amelo");
+            console.log(amelo);
+            amelo.src = "Imagens_Genius/amarelo_aceso.png";
+
+            setTimeout(function (){
+                document.getElementById("amelo").src = "Imagens_Genius/amarelo.png";
+            }, 750);
+
+            ordem.push(1);
+        }
+
+        function azul(){
+            ablu = document.getElementById("ablu");
+            console.log(ablu);
+            ablu.src = "Imagens_Genius/azul_aceso.png";
+    
+            setTimeout(function (){
+                document.getElementById("ablu").src = "Imagens_Genius/azul.png";
+            }, 750);
+    
+            ordem.push(2);
+        }
+    
+        function verde(){
+            velde = document.getElementById("velde");
+            console.log(velde);
+            velde.src = "Imagens_Genius/verde_aceso.png";
+    
+            setTimeout(function (){
+                document.getElementById("velde").src = "Imagens_Genius/verde.png";
+            }, 750);
+    
+            ordem.push(3);
+        }
+
+        function vermelho(){
+            velho = document.getElementById("velho");
+            console.log(velho);
+            velho.src = "Imagens_Genius/vermelho_aceso.png";
+
+            setTimeout(function (){
+                document.getElementById("velho").src = "Imagens_Genius/vermelho.png";
+            }, 750);
+
+            ordem.push(4);
+        }
+
+/* ============================================================================================ */
+
+    /* Função para ser chamada pelo programa */
+        function amareloPc(){
+            amelo = document.getElementById("amelo");
+            console.log(amelo);
+            amelo.src = "Imagens_Genius/amarelo_aceso.png";
+
+            setTimeout(function (){
+                document.getElementById("amelo").src = "Imagens_Genius/amarelo.png";
+            }, 750);
+        }
+        
+        function azulPc(){
+            ablu = document.getElementById("ablu");
+            console.log(ablu);
+            ablu.src = "Imagens_Genius/azul_aceso.png";
+    
+            setTimeout(function (){
+                document.getElementById("ablu").src = "Imagens_Genius/azul.png";
+            }, 750);
+        }
+
+        function verdePc(){
+            velde = document.getElementById("velde");
+            console.log(velde);
+            velde.src = "Imagens_Genius/verde_aceso.png";
+
+            setTimeout(function (){
+                document.getElementById("velde").src = "Imagens_Genius/verde.png";
+            }, 750);
+        }
+
+        function vermelhoPc(){
+            velho = document.getElementById("velho");
+            console.log(velho);
+            velho.src = "Imagens_Genius/vermelho_aceso.png";
+
+            setTimeout(function (){
+                document.getElementById("velho").src = "Imagens_Genius/vermelho.png";
+            }, 750);
+        }
+
+/* =============================================================================================== */
+
+        /* ALTERA O PLACAR A CADA RODADA */
+        function placar(){
+            
+            if (x > record && parador == true){
+                
+                /* PEGA O VALOR DO X, OU RECORD */
+                record = x;
+
+                pontuation = document.getElementById("ponto");
+                pontuation.value = record;
+
+                if (maxRecord < record){
+                    
+                    maxRecord = record;
+
+                    maxPontuation = document.getElementById("pontomax");
+                    maxPontuation.value = maxRecord;
+                }
+            }
+        }
+
+/* =============================================================================================== */
+        function iniciar(){
+
+            //começa ou para
+            parador = JSON.stringify(ordem) == JSON.stringify(ordemPc);
+
+
+            //cria a ordem do jogo
+            ordemPcAdd = Math.ceil(Math.random() * 4);
+            ordemPc.push(parseInt(ordemPcAdd));
+            ordemPcTam = ordemPc.length;
+
+            /* exibe o placar */
+            placar();
+
+            //verifica se a ordem dos dois estão iguais
+            if(parador == true && ordem != null){
+                
+                ordem = [];
+                x++;
+                
+                setTimeout(function(){
+
+                    switch (ordemPc[ifis]){ 
+                        case 1:
+                            amareloPc();
+                            ifis++;
+                            break;
+
+                        case 2: 
+                            azulPc();
+                            ifis++;
+                            break;
+                    
+                        case 3: 
+                            verdePc();
+                            ifis++;
+                            break;
+                    
+                        case 4:
+                            vermelhoPc();
+                            ifis++;
+                            break;
+                    
+                        default:
+                            alert("ERRO NO SISTEMA! (ERRO AO-374)");
+
+                            ifis++;
+                            console.log(ordemPc);
+                            console.log(x);
+                            break;
+                    }
+                }, 1000);
+            }
+            else
+            {
+                alert("Você errou !!");
+
+                //sobre array do pc
+                console.log("Ordem do pc na posição ''" + x + "'' é:" + ordemPc[x]);
+                console.log("O tipo da variável é: " + typeof(ordemPc[x]));
+                console.log("O array do pc: " + ordemPc);
+                console.log("Tamanho do array do pc: " + ordemPc.length);
+                console.log("O x vale: " + x);
+
+                //sobre array do jogador
+                console.log("Ordem do player na posição ''" + x + "'' é:" + ordem[x]);
+                console.log("O tipo da variável é: " + typeof(ordem[x]));
+                console.log("O array do player: " + ordem);
+                console.log("Tamanho do array do player: " + ordem.length);
+                console.log("O x vale: " + x);
+            }   
+        }
+/* =============================================================================================== */
+        function parar(){
+            alert("Jogo reiniciado!");
+
+            document.getElementById("ponto").value = 0;
+            
+            ordemPc = [];
+            ordem = [];
+            x = 0;
+        }
+/* =============================================================================================== */
+    </script>
+</body>
+</html>
