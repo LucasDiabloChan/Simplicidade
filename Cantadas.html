@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Cantadas aleatórias </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        #geral{
+            width: 100vw;
+            height: 100vh;
+            background-image: url("https://super.abril.com.br/wp-content/uploads/2018/07/9-aspectos-sobre-as-pessoas-que-pensam-com-o-coracao_home.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        h1{
+            animation-name: pisca;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        #textim{
+            width: 200px;
+            height: 150px;
+            overflow: auto;
+            background-color: lightgoldenrodyellow;
+        }
+
+        #textao::after{
+            content: " ☙";
+            animation-name: pisca;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+
+        #textao::before{
+            content: "❧ ";
+            animation-name: pisca;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes pisca {
+            0%, 100% { color: magenta; opacity: 100%; }
+            20%, 80% { color: rebeccapurple; opacity: 75%; }
+            40%, 60% { color: salmon; opacity: 50%; }
+        }
+
+        #ver{
+            padding: 2px;
+            border-radius: 10px;
+            background-color: aquamarine;
+            font-family: 'Times New Roman', Times, serif;
+            width: auto;
+        }
+
+        .test{
+            margin: 0 auto;
+            border-style: groove;
+            border-color: gray;
+            border-radius: 2px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <main id="geral">
+        <h1> Mensagem para ti! </h1>
+        <!-- FORMULÁRIO PARA TRAZER O TEXTO -->
+        <br>
+        <br>
+        <form action="#">
+            <label for="textom"> Leia sua mensagem clicando no botão abaixo: </label><br><br>
+            <label for="textom"> (Para melhor visualização em dispositivos móveis, veja na horintal) </label>
+            
+            <div id="textim" name="textom" class="test">
+                <p id="textao"></p>
+            </div>
+
+        </form>
+        <label for="aviso"> Obs: Caso ocorra algum problema, atualize a página. </label> <br>
+        <button id="ver" name="aviso" onclick="separador()"> Ver minha mensagem </button>
+        
+
+        <!-- SCRIPT PARA REALIZAR A CONTA -->
+        <script>
+
+            cantadas = [
+                "Assim como o cego enxerga a luz, um surdo " +
+                "pode ouvir o teu silêncio.",
+                
+                "Como um lápis quebrado, a vida sem você é inútil.",
+
+                "Você está viajando na velocidade da luz? " +
+                "Porque o tempo parece sempre parar quando olho para você.",
+
+                "Seus pais são matemáticos? Porque você é um produto notável.",
+            
+                "Meu amor por você é como a fórmula de Pi: irracional e infinito.",
+
+                "Do que adianta estudar Física, se você não respeita a lei da nossa atração?",
+            
+                "Eu pensei que \"felicidade\" começava com F, mas começa com você.",
+
+                "Será que você poderia fragmentar a sua beleza em várias fotos? " + 
+                "Minha internet não suporta toda essa divindade de uma vez.",
+
+                "Um minuto são 60 maneiras de pensar em você.",
+
+                "Não importa a cor do céu, quem faz o meu dia lindo é você.",
+
+                "Você nem imagina quantos sorrisos eu já dei só de pensar em você.",
+
+                "Se eu fosse um gato, passaria as minhas sete vidas com você.",
+
+                "Eu ia dizer uma coisa fofa, mas você me deixou sem palavras."]
+            
+            /* Variáveis importantes */
+            letras = [];
+            qtd_letra_a = 0;
+            
+            
+            function escreve(num){
+                
+                if (num == letras.length){
+                    clearInterval(abracadabra)
+                }
+                else{
+                    
+                    frase = document.getElementById("textao");
+                    letra = document.createTextNode(letras[num]);
+                    frase.appendChild(letra);
+                }
+
+            }
+
+            function separador(){
+                parag = document.getElementById("textao").innerHTML = "";
+
+                choose = Math.ceil(Math.random()*13);
+                texto = cantadas[choose];
+
+                // Bloco para separar as letras
+                for(i = 0; i < texto.length; i++){
+
+                    // Separa as letras
+                    letras[i] = texto.slice(i, i + 1);
+
+                    console.log("Letra cortada:" + letras[i]);
+                };
+
+                let num = 0;
+
+                abracadabra = setInterval(function(){
+
+                    escreve(num);
+                    
+                    num ++;
+                    
+                }, 75);
+
+                console.log(i)
+                console.log(texto.length)
+                console.log(letras);
+                console.log(texto);
+            };
+
+        </script>
+    </main>
+</body>
+</html>
