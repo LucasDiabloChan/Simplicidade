@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Aula 01 - Javascript </title>
+        <style>
+            *{
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+                
+            body{
+                background-color:#364f6b;
+                width: 100%;
+                height: 10vh;
+
+            }
+            main{
+                width: 80%;
+                margin: 0 auto;
+            }
+            #fundo{
+                overflow: auto;
+                display: inline-block;
+                background-size: cover;
+                background-repeat: no-repeat;
+                border: 10px double black;
+                padding: 5px;
+                min-width: 400px;
+                margin: 0 auto;
+            }
+            
+            dl{
+                list-style: none;
+                display: block;
+            }
+            .botao{
+                transform-style: flat;
+                border-radius: 5px;
+                background-color: #00adb5;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1> Brincando com Funções - Javascript</h1>
+        
+        <hr>
+
+        <div id="fundo" class="divi">
+            <img id="imgs" src="https://i.pinimg.com/originals/9b/7b/c8/9b7bc80097179ffac4f41230785550d7.jpg" alt="">
+        </div>
+
+
+        <dl>
+            <dt> Imagem </dt>
+            <br>
+                <dd>
+                    Alterar imagem: <br>
+                    <button class = "botao" onclick = "MudarImg()"> Mudar foto (Por link).</button>
+                    <input type="file" name="imgupada" id="arquivo" placeholder="INSIRA UMA FOTO">
+                    <!-- <button class = "botao" onclick = "InserirImg()"> Mudar foto (Por upload).</button> -->
+                    <br><br>
+                </dd>
+                <dd>
+                    Estilo da imagem (geral): <br>
+                    <button class = "botao" onclick = "AlterSize()"> Redimensionar a imagem. </button>
+                    <button class = "botao" onclick = "AlterTransp()"> Aumentar/Diminuir a transparência </button>
+                    <button class = "botao" onclick = "AlterBorda()"> Alterar/Adicionar borda. </button>
+                    <br><br>
+                </dd>
+                <dd>
+                    Estilo da borda: <br>
+                    <button class = "botao" onclick = "AlterarBorda()"> Alterar o estilo da borda. </button>
+                    <button class = "botao" onclick = "AlterarTamBor()"> Alterar o tamanho da borda. </button>
+                    <button class = "botao" onclick = "AlterCorBorda()"> Alterar a cor da borda. </button>
+                    <br><br>
+                </dd>
+
+            <dt> Fundo </dt>
+                <dd>
+                    Alterar cor do fundo: <br>
+                    <button class = "botao" onclick = "AlterBg()"> Alterar a cor do fundo da imagem. </button>
+                    <button class = "botao" onclick = "MudarImgFundo()"> Inserir/alterar imagem do fundo. </button>
+                    <button class = "botao" onclick = "AlterTamFund()"> Alterar tamanho do fundo. </button>
+
+                </dd>
+        </dl>
+
+        </main>
+        
+
+        <script>
+        /*CRIAR FUNÇÕES PARA:*/
+            /*Sobre a imagem:*/
+            // 1 - Alterar a imagem;
+            // 2 - Alterar o tamanho da imagem
+            // 3 - alterar a transparência da imagem
+            // 4 - Alterar a borda da imagem
+
+            /*Sobre o fundo*/
+            // 1 - Alterar a cor do fundo
+            // 2 - Alterar o tamanho do fundo
+
+
+            /*FUNÇÕES PARA AS IMAGENS*/
+
+            // Função para alterar a imagem
+            function MudarImg(){
+                // pega a imagem
+                foto = prompt("Insira a url (link) da imagem escolhida.");
+
+                // pega a foto a ser alterada
+                novaImg = document.getElementById("imgs");
+                    console.log(foto);
+                    console.log(novaImg);
+                
+                // altera a imagem
+                novaImg.src = foto;
+            }
+
+            // Função para alterar a imagem
+            function MudarImg(){
+                // pega a imagem
+                foto = prompt("Insira a url (link) da imagem escolhida.");
+
+                // pega a foto a ser alterada
+                novaImg = document.getElementById("imgs");
+                    console.log(foto);
+                    console.log(novaImg);
+                
+                // altera a imagem
+                novaImg.src = foto;
+            }
+
+            // Função para alterar o tamanho da imagem
+            function AlterSize(){
+                
+                //traz as medidas das imagens
+                altura = prompt("Insira um valor para a altura da imagem.") + "px";
+                largura = prompt("Insira um valor para a largura da imagem.") + "px";
+                
+                //muda a propriedades da imagem
+                imagem = document.getElementById("imgs");
+
+                    //consoles para fins informacionais
+                    console.log(imagem);
+                    console.log(altura);
+                    console.log(largura);
+
+                imagem.style.height = altura;
+                imagem.style.width = largura;
+            }
+
+            //Aumentar/Dimiuir a transparência da imagem
+            function AlterTransp(){
+                transp = prompt("Insira em % a transparência desejada.");
+
+                document.getElementById("imgs").style.opacity = transp;
+            }
+
+            //função para alterar o estilo da borda da imagem
+            function AlterBorda(){
+                //pega a cor inserida
+                tipo = prompt("Que tipo de borda você deseja? (Insira em inglês).");
+                tamanho = prompt("Qual tamanho devo colocar nesta borda? (Medida em pixels (px)");
+                cor = prompt("Insira a cor desejada para a borda (Em inglês ou em hexadecimal com o ''#'').");
+                
+                    console.log(tipo);
+                    console.log(tamanho);
+                    console.log(cor);
+
+                //faz as mudanças
+                document.getElementById("imgs").style.borderStyle = tipo;
+                document.getElementById("imgs").style.borderWidth = tamanho;
+                document.getElementById("imgs").style.borderColor = cor;                   
+            }
+
+            //função para alterar só o estilo da borda da imagem
+            function AlterarBorda(){
+                //pega o estilo inserido
+                tipo = prompt("Que tipo de borda você deseja? (Insira em inglês)." + "px");
+                
+                    console.log(tipo);
+                    
+                //faz as mudanças
+                document.getElementById("imgs").style.borderStyle = tipo;
+            }
+
+            //função para alterar o tamanho da borda da imagem
+            function AlterarTamBor(){
+                //pega o tamanho inserido
+                tamanho = prompt("Qual tamanho devo colocar nesta borda? (Medida em pixels (px)") + "px";
+
+                    console.log(tamanho);
+
+                //faz as mudanças
+                document.getElementById("imgs").style.borderWidth = tamanho;                  
+            }
+
+            //função para alterar a cor da borda da imagem
+            function AlterCorBorda(){
+                //pega a cor inserida
+                cor = prompt("Insira a cor desejada para a borda (Em inglês ou em hexadecimal com o ''#'').");
+
+                    console.log(cor);
+
+                //faz as mudanças
+                document.getElementById("imgs").style.borderColor = cor;                   
+            }            
+
+
+            /* Funções para estilo do fundo*/
+            
+            //função para alterar a cor do fundo do quadro
+            function AlterBg(){
+                //pega a cor inserida
+                cor = prompt("Insira a cor desejada (em inglês ou em hexadecimal com o ''#'').");
+                console.log(cor);
+
+                //muda a cor
+                document.getElementById("fundo").style.backgroundColor = cor;                   
+            }
+
+            // Função para alterar a imagem
+            function MudarImgFundo(){
+                // pega a imagem
+                foto = prompt("Insira a url (link) da imagem escolhida.");
+
+                // pega a foto a ser alterada
+                novoFundo = document.getElementById("fundo");
+                    console.log(foto);
+                    console.log(novoFundo);
+                
+                // altera a imagem
+                novoFundo.style.backgroundImage = "url('" + foto + "')";
+            }
+
+            //função para alterar o tamanho do fundo
+            function AlterTamFund(){
+
+                //pega as medidas inseridas
+                altura = prompt("Insira a altura para o fundo. (Insira na medida desejada. Ex: ch, vh, px  e etc.)");
+                largura = prompt("Insira a largura para o fundo. (Insira na medida desejada. Ex: ch, vh, px  e etc.)");
+
+                    console.log(altura);
+                    console.log(largura);
+
+                document.getElementById("fundo").style.height = altura;
+                document.getElementById("fundo").style.width = largura;
+
+            }
+        </script>
+    </body>
+</html>
