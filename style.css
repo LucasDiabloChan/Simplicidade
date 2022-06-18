@@ -1,0 +1,38 @@
+*{
+    background-color: lightblue;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.form{
+    text-align: center;
+    background-image: linear-gradient(to right, #00ffff, rgb(240, 191, 86));
+}
+
+.tabela{
+    text-align: left;
+    background-image: linear-gradient(to left, red, orange);
+    margin: 0 auto;
+}
+.tabela th{
+    padding: 10px;
+}
+.botoes{
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    background-color: lightgoldenrodyellow;
+}
+
+#descProd{
+    border-radius: 3px;
+    background-color: lightgoldenrodyellow;
+}
+
+.fim{
+    background-color: goldenrod;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+}

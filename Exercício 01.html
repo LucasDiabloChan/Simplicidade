@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Exercício 01 </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="Exercício 01.js"></script>
+</head>
+<body id="tudin">
+    <h1> Cadastramento de produto </h1>
+    <form action="#" class="form"><br>
+        
+        DADOS DO PRODUTO: <br><br>
+        <table class="tabela" cellspacing="2px">
+            <tr>
+                <th>
+                    Nome do produto: 
+                </th>
+                <th>
+                    <input class="botoes" placeholder="Nome do produto" type="text" id="nome" required>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    Descrição: 
+                </th>
+                <th>
+                    <textarea id="descProd" cols="60" rows="4"> Sem informações.</textarea>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    Quantidade
+                </th>
+                <th>
+                    <input class="botoes" placeholder="Quantidade do produto" type="number" id="qtd" required>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    Preço unitário:
+                </th>
+                <th>
+                    R$ <input class="botoes" placeholder="Preço do produto" type="number" id="preco_Und" required>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    Desconto: (apenas número)
+                </th>
+                <th>
+                    <input onkeyup="calcular()" class="botoes" placeholder="Desconto do produto" type="number" id="desconto" required>%
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    Valor do estoque: 
+                </th>
+                <th>
+                    R$ <input class="botoes" placeholder="Cálculo automático*" type="float" id="val_tot" readonly>
+                </th>
+            </tr>
+        </table>
+        
+        <br>
+
+        <button class="fim" type="button" onclick="salvar()"> Cadastrar produto </button> | <button class="fim" type="button" onclick="mostrar()"> Exibir </button>
+    </form>
+</body>
+</html>
